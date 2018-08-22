@@ -76,12 +76,12 @@ System.out.println("\tNumbers added!");
 Thread.sleep(800);}
 break;
 case 4:
-Animate(4);
 if(str.contains("\t!@#$%^&*()_+<>?")){
 System.out.println("already contains Special Character select another Characterset");
 Thread.sleep(7000);}
 else{
 str += "!@#$%^&*()_+<>?";
+Animate(4);
 System.out.println("\tSpecial Characters added!");
 Thread.sleep(800);}
 break;
@@ -108,20 +108,43 @@ break Y;
 }
 switch(c){
 case 1:
+String temp="";
 for(int i=33;i<=126;i++)
-str += String.valueOf(((char)i));
+temp += String.valueOf(((char)i));
+if(str.contains(temp)){
+System.out.println("already contains ASCII Character select another Characterset");
+Thread.sleep(1200);
+break;}
+else{
+str+=temp;
+Animate(-1);}
 break;
 case 2:
+String temp1="";
 for(int i=0;i<=127;i++)
-str += String.valueOf(((char)i));
+temp1 += String.valueOf(((char)i));
+if(str.contains(temp1)){
+System.out.println("already contains ASCII Character select another Characterset");
+Thread.sleep(1200);
+break;}
+else{
+str+=temp1;
+Animate(5);
+}
 break;
 case 3:
 int min=0,max=127;
-System.out.print("\t\t\tEnter max-value:");
-max = o1.nextInt();
+try{
 System.out.print("\t\t\tEnter min-value:");
 min = o1.nextInt();
-if(max < min | max<0 | min<0 | min>255 | max>255)
+System.out.print("\t\t\tEnter max-value:");
+max = o1.nextInt();}
+catch(Exception e){
+System.out.println("\t\t\tInvalid input!!");
+Thread.sleep(1200);
+menu();
+}
+if(max < min | max<0 | min<0 | min>127 | max>127)
 {
 System.out.println("\t\t\tInvalid input!!");
 Thread.sleep(1200);
@@ -135,7 +158,7 @@ System.out.println("\t\t\tInValid input!");
 Thread.sleep(1000);
 break Y;
 }
-System.out.println("ASCII Characters added!");
+System.out.println("\n\tASCII Characters added!");
 Thread.sleep(800);
 break;
 case 8:
@@ -184,12 +207,21 @@ for(String temp:strlist){
 return String.join("",list);
 }
 public static void Animate(int n)throws Throwable{
-if(n==0){
+if(n==-1){
+System.out.print("\t\tAdding ASCII Values");
+Thread.sleep(200);
+for(int ch=33;ch<=126;ch++){
+System.out.print((char)ch);
+Thread.sleep(20);
+}
+return;}
+else if(n==0){
 System.out.print("\t\tAdding Numbers:");
 Thread.sleep(200);
 for(char ch='0';ch<='9';ch++)
 {System.out.print(ch);
 Thread.sleep(20);}
+return;
 }
 else if(n==1){
 System.out.print("\t\tAdding Capitals:");
@@ -197,6 +229,7 @@ Thread.sleep(500);
 for(char ch='A';ch<='Z';ch++)
 {System.out.print(ch);
 Thread.sleep(20);}
+return;
 }
 else if(n==2){
 System.out.print("\t\tAdding Small:");
@@ -204,6 +237,7 @@ Thread.sleep(500);
 for(char ch='a';ch<='z';ch++)
 {System.out.print(ch);
 Thread.sleep(20);}
+return;
 }
 else if(n==3){
 System.out.print("\t\tAdding Numbers, Capitals and small:");
@@ -215,8 +249,9 @@ ch='A';
 if(ch=='Z')
 ch='a';
 Thread.sleep(20);}
+return;
 }
-else{
+else if(n==4){
 System.out.print("\t\tAdding Special Characters:");
 Thread.sleep(500);
 for(char ch=32;ch<=126;ch++){
@@ -225,7 +260,15 @@ if(ch==47)
 ch=91;
 if(ch==96)
 ch=123;
+Thread.sleep(20);}
+return;
+}
+else{
+System.out.print("\t\tAdding ASCCI Values:");
+Thread.sleep(500);
+for(int i=0;i<=127;i++){
+System.out.print((char)i);
 Thread.sleep(20);
 }
-}
+return;}
 }}
