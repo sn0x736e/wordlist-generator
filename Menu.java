@@ -6,10 +6,6 @@ public static String menu()throws Throwable{
 Scanner o1 = new Scanner(System.in);
 String str ="";
 X:while(true){
-        if (System.getProperty("os.name").contains("Windows"))
-            Runtime.getRuntime().exec("cls");
-        else
-            Runtime.getRuntime().exec("clear");
 System.out.println("\n\t\t\t****************\tDICTIONARY-CREATER\t****************");
 System.out.println("\tAdd CharacterSet:");
 System.out.println("\t\t0.Alpha-numeric[a-z,A-Z,0-9]");
@@ -197,7 +193,7 @@ strlist[i] = strlist[j];
 strlist[j]=temp;
 }
 }
-List<String> list = new ArrayList<>();
+List<String> list = new ArrayList<String>();
 for(String temp:strlist){
     if(list.contains(temp))
     continue;
