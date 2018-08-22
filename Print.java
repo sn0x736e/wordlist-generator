@@ -46,7 +46,8 @@ System.out.println(st1);
 System.setOut(console);
 System.out.println(st1);}
 }}
-System.out.println(temp+".txt"+" created in current directory!");}
+System.out.println(temp+".txt"+" created in current directory!");
+System.out.println("\n\n**********\tWordlist Created by Shashwat Nema);}
 System.out.println("Generating wordlist:");
 Thread.sleep(500);
 System.setOut(console);
@@ -56,5 +57,5 @@ for(String st:list1){
 List<String> list2 = Permute.permute1(st);
 for(String st1:list2){
 System.out.println(st1);}
-}}
+}}System.out.println("\n\n**********\tWordlist Created by Shashwat Nema);
 }}
